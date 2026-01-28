@@ -20,21 +20,21 @@ Key characteristics of RISC-V:
 This project is based on:
 * **RISC-V 32-bit base architecture (RV32)**
 
-## Project Overview
+##  Project Overview
 
-In this repository, **I have implemented a basic RISC-V 32-bit processor core using Verilog HDL** to understand how a processor works internally.
+In this repository, **I have implemented a basic RISC-V 32-bit processor core using Verilog HDL** to understand how a processor works at the RTL level. The main goal of this project is to study the **instruction execution flow**, starting from instruction fetch to register update, through simulation.
 
-The project focuses on:
+I designed the core to perform the following operations:
 
-* Instruction fetch using a **Program Counter (PC)**
-* Fetching 32-bit instructions from instruction memory
-* Decoding instructions according to RISC-V ISA
-* Executing basic instructions
-* Reading from and writing to general-purpose registers
+* Maintain a **32-bit Program Counter (PC)** to fetch instructions sequentially
+* Fetch **32-bit RISC-V instructions** from instruction memory
+* Decode the fetched instruction
+* Execute basic operations using internal control logic and ALU
+* Read from and write to **general-purpose registers (x1, x2, x3, x4, etc.)**
 
-The processor is designed to execute instructions **cycle by cycle**, and its correctness is verified through **simulation waveform analysis** using Vivado.
+This project focuses on **functional correctness**, where the processor executes instructions cycle by cycle and updates the program counter and registers accordingly. The correctness of the design is verified using **Vivado behavioral simulation**, where instruction execution and register updates are observed through waveforms.
 
-This implementation serves as a **foundation-level RISC-V core**, suitable for learning and future extensions such as pipelining, memory interfaces, and peripherals.
+This implementation serves as a **foundation for advanced processor designs**, such as pipelined architectures, memory integration, and peripheral interfaces like UART.
 
 
 ## Processor Architecture (High Level)
