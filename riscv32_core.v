@@ -31,9 +31,7 @@ module riscv32_core (
     output wire [31:0] x4_dbg
 );
 
-    // -----------------------------
     // Program Counter
-    // -----------------------------
     reg [31:0] pc;
 
     always @(posedge clk or posedge reset) begin
@@ -45,9 +43,7 @@ module riscv32_core (
 
     assign pc_dbg = pc;
 
-    // -----------------------------
-    // Instruction Memory (FIXED)
-    // -----------------------------
+    // Instruction Memory
     reg [31:0] imem [0:15];
     integer k;
 
@@ -56,7 +52,6 @@ module riscv32_core (
         for (k = 0; k < 16; k = k + 1)
             imem[k] = 32'h00000013; // NOP (addi x0, x0, 0)
 
-        // Program
         imem[0] = 32'h00A00093; // addi x1, x0, 10
         imem[1] = 32'h01400113; // addi x2, x0, 20
         imem[2] = 32'h002081B3; // add  x3, x1, x2
@@ -67,9 +62,7 @@ module riscv32_core (
     assign instr = imem[pc[5:2]];
     assign instr_dbg = instr;
 
-    // -----------------------------
     // Instruction Fields
-    // -----------------------------
     wire [6:0] opcode = instr[6:0];
     wire [4:0] rd     = instr[11:7];
     wire [4:0] rs1    = instr[19:15];
@@ -78,9 +71,7 @@ module riscv32_core (
 
     wire [31:0] imm_i = {{20{instr[31]}}, instr[31:20]};
 
-    // -----------------------------
     // Register File
-    // -----------------------------
     reg [31:0] regfile [0:31];
     integer i;
 
@@ -109,9 +100,7 @@ module riscv32_core (
         end
     end
 
-    // -----------------------------
     // Debug Outputs
-    // -----------------------------
     assign x1_dbg = regfile[1];
     assign x2_dbg = regfile[2];
     assign x3_dbg = regfile[3];
