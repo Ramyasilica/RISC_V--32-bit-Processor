@@ -39,15 +39,14 @@ module riscv32_core_tb();
         .x3_dbg(x3),
         .x4_dbg(x4)
     );
-
-    // Clock: 10 ns period
+    
     always #5 clk = ~clk;
 
     initial begin
         clk   = 0;
         reset = 1;
 
-        #20 reset = 0;   // Release reset
+        #20 reset = 0;   
         #400 $finish;
     end
 
