@@ -134,8 +134,7 @@ This instruction corresponds to a **NOP (No Operation)** in RISC-V.
 This confirms correct **instruction fetch, decode, and execution behavior**.
 
 ## 🖼️ Output Waveform
-
-*Add the Vivado simulation waveform here to demonstrate PC updates, instruction execution, and register activity.*
+![image alt](https://github.com/Ramyasilica/RISC_V--32-bit-Processor/blob/befd548d06b7b879ce5487d2afa66cd9447467ef/RISC%20V-%2032%20bit_Processor.jpg)
 
 🧾 Conclusion
 
